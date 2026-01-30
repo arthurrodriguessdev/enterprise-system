@@ -31,8 +31,8 @@ def get_produto(codigo_produto):
                 produto_escolhido = produto
                 break
 
-        print(produto_escolhido)
         return produto_escolhido
+    
     except Exception:
         raise ValueError('O produto não foi encontrado.')
 
@@ -54,3 +54,6 @@ def comprar_produto():
 
     except Exception:
         raise ValueError('Código inválido e/ou produto não encontrado.')
+    
+    print('\nCompra realizada com sucesso. Já geramos o seu comprovante!')
+    return True

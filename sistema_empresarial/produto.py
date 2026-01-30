@@ -35,15 +35,15 @@ class Produto:
         if not quantidade or quantidade <= 0 or not isinstance(quantidade, int):
             raise ValueError('Quantidade inválida.')
     
-    def verificar_estoque(Produto, quantidade_solicitada):
-        if Produto._quantidade < quantidade_solicitada:
-            raise ValueError(f'Infelizmente nosso estoque de {Produto.nome} não tenha a quantidade solicitada')
+    def verificar_estoque(self, quantidade_solicitada):
+        if self._quantidade < quantidade_solicitada:
+            raise ValueError(f'Infelizmente nosso estoque de {self.nome} não tenha a quantidade solicitada')
     
-    def descontar_estoque(Produto, quantidade_descontar):
-        if Produto.quantidade < quantidade_descontar:
+    def descontar_estoque(self, quantidade_descontar):
+        if self._quantidade < quantidade_descontar:
             raise ValueError('Não há essa quantidade para descontar do estoque')
         
-        Produto.quantidade -= quantidade_descontar
+        self._quantidade -= quantidade_descontar
 
     def __str__(self):
         return f'{self._nome} | Código: {self._codigo} | Quantidade: {self.quantidade}'
