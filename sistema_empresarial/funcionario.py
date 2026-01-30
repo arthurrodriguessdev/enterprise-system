@@ -1,20 +1,20 @@
 from abc import ABC, abstractmethod
 from pessoa import Pessoa
-from utils import gerar_matricula
+from utils import gerar_sequencia
 
 
 class Funcionario(Pessoa, ABC):
     def __init__(self, nome, idade, altura, salario_base, departamento):
         self._validar_salario_base(salario_base)
 
-        self._matricula = gerar_matricula()
+        self._matricula = gerar_sequencia()
         self._salario_base = salario_base
         self._departamento = departamento
         self._avaliacoes = []
 
         return super().__init__(nome, idade, altura)
 
-    # @abstractmethod
+    @abstractmethod
     def calcular_salario(self):
         pass
 
