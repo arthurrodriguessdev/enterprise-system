@@ -44,6 +44,13 @@ class Produto:
             raise ValueError('Não há essa quantidade para descontar do estoque')
         
         self._quantidade -= quantidade_descontar
+    
+    def verificar_valor_pago(self, valor_pago, valor_total_compra):
+        if not valor_pago or not isinstance(valor_pago, float):
+            raise ValueError('Valor pago inválido.')
+        
+        if valor_pago < valor_total_compra:
+            raise ValueError('Valor insuficiente.')
 
     def __str__(self):
         return f'{self._nome} | Código: {self._codigo} | Quantidade: {self.quantidade}'
