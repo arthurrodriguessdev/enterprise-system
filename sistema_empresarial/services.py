@@ -2,7 +2,8 @@ import random
 from produto import Produto
 from vendas import Venda
 from vendedor import Vendedor
-from gerar_arquivos import gerar_comprovante_compra
+from empresa import Empresa
+from gerar_arquivos import gerar_comprovante_compra, gerar_relatorio
 
 
 PRODUTOS = (
@@ -15,8 +16,8 @@ PRODUTOS = (
 
 VENDEDORES = (
     Vendedor("João Silva", 28, 1.75, 3200.00, "Vendas"), 
-    Vendedor("Maria Oliveira", 35, 1.62, 4800.00, "Financeiro"), 
-    Vendedor("Carlos Souza", 22, 1.80, 2200.00, "TI")
+    Vendedor("Maria Oliveira", 35, 1.62, 4800.00, "Vendas"), 
+    Vendedor("Carlos Souza", 22, 1.80, 2200.00, "Vendas")
 )
 
 def selecionar_vendedor(vendedores):
@@ -37,7 +38,7 @@ def get_produto(codigo_produto):
     except Exception:
         raise ValueError('O produto não foi encontrado.')
 
-def comprar_produto():
+def comprar_produto(empresa):
     if PRODUTOS is None:
         raise ValueError('Erro ao adicionar produtos')
     
@@ -52,14 +53,17 @@ def comprar_produto():
         vendedor = selecionar_vendedor(VENDEDORES)
 
         valor_total = produto.preco * quantidade_produto_comprar
+
         print('\nValor total da compra: R$', valor_total)
+
         valor_pago = float(input('Com quantos reais irá pagar? '))
         venda = Venda(produto, vendedor, quantidade_produto_comprar, valor_pago, valor_total)
 
     except Exception:
         raise ValueError('Código inválido e/ou produto não encontrado.')
     
-    gerar_comprovante_compra(produto, quantidade_produto_comprar, valor_total, venda.data_hora)
+    empresa.registrar_venda(valor_total)
+    gerar_comprovante_compra(produto, quantidade_produto_comprar, valor_total, venda.data_hora, vendedor)
     
     print('\nCompra realizada com sucesso. Já geramos o seu comprovante!')
     return True

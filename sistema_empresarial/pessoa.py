@@ -46,12 +46,12 @@ class Pessoa():
     @idade.setter
     def idade(self, nova_idade):
         self._validar_idade(nova_idade)
-        self.idade = nova_idade
+        self._idade = nova_idade
     
     @altura.setter
     def altura(self, nova_altura):
         self._validar_altura(nova_altura)
-        self.altura = nova_altura
+        self._altura = nova_altura
     
     def __str__(self):
         return f'Nome: {self._nome} | Idade: {self._idade}'

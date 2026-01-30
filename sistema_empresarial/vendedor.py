@@ -5,7 +5,7 @@ class Vendedor(Funcionario):
     def __init__(self, nome, idade, altura, salario_base, departamento):
         self._comissao = 0
 
-        return super().__init__(nome, idade, altura, salario_base, departamento)
+        super().__init__(nome, idade, altura, salario_base, departamento)
     
     @property
     def comissao(self):

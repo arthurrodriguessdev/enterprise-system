@@ -1,7 +1,11 @@
 from vendas import Venda
 from produto import Produto
+from empresa import Empresa
+from gerente import Gerente
 from services import comprar_produto
+from gerar_arquivos import gerar_relatorio
 
+EMPRESA = Empresa()
 
 def main():
     while True:
@@ -17,12 +21,10 @@ def main():
 
         match(opcao):
             case 1:
-                comprar_produto()
-                break
+                comprar_produto(EMPRESA)
 
             case 2:
-                ...
-                break
+                gerar_relatorio(EMPRESA)
             
             case 3:
                 print('\nEncerrando programa')

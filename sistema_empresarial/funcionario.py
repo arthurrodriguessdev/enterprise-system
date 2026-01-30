@@ -12,7 +12,7 @@ class Funcionario(Pessoa, ABC):
         self._departamento = departamento
         self._avaliacoes = []
 
-        return super().__init__(nome, idade, altura)
+        super().__init__(nome, idade, altura)
 
     @abstractmethod
     def calcular_salario(self):
