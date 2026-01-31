@@ -1,4 +1,4 @@
-from funcionario import Funcionario
+from sistema_empresarial.core.funcionario import Funcionario
 
 
 class Gerente(Funcionario):

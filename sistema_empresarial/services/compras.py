@@ -1,8 +1,8 @@
 import random
-from core.produto import Produto
-from core.vendas import Venda
-from core.vendedor import Vendedor
-from utils.gerar_arquivos import gerar_comprovante_compra
+from sistema_empresarial.core.produto import Produto
+from sistema_empresarial.core.vendas import Venda
+from sistema_empresarial.core.vendedor import Vendedor
+from sistema_empresarial.utils.gerar_arquivos import gerar_comprovante_compra
 
 
 PRODUTOS = (

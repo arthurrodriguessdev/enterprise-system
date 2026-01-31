@@ -1,4 +1,4 @@
-from core.funcionario import Funcionario
+from sistema_empresarial.core.funcionario import Funcionario
 
 
 class Vendedor(Funcionario):
@@ -12,7 +12,10 @@ class Vendedor(Funcionario):
         return self._comissao
     
     def calcular_comissao(self, produto, qtd_vendida):
-        self._comissao += (produto.preco * qtd_vendida) / 20
+        comissao = (produto.preco * qtd_vendida) / 20
+        self._comissao += comissao
+        return comissao
+        
 
     def calcular_salario(self):
         return self._salario_base + self._comissao

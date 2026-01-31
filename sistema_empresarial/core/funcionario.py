@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
-from core.pessoa import Pessoa
-from utils.sequencias import gerar_sequencia
+from sistema_empresarial.core.pessoa import Pessoa
+from sistema_empresarial.utils.sequencias import gerar_sequencia
 
 
 class Funcionario(Pessoa, ABC):
