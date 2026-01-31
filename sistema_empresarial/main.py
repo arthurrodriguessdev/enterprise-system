@@ -1,5 +1,5 @@
 from core.empresa import Empresa
-from sistema_empresarial.services.compras import comprar_produto
+from services.compras import comprar_produto
 from utils.gerar_arquivos import gerar_relatorio
 
 EMPRESA = Empresa()

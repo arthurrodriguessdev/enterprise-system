@@ -2,7 +2,7 @@ import random
 from core.produto import Produto
 from core.vendas import Venda
 from core.vendedor import Vendedor
-from sistema_empresarial.utils.gerar_arquivos import gerar_comprovante_compra
+from utils.gerar_arquivos import gerar_comprovante_compra
 
 
 PRODUTOS = (
@@ -61,7 +61,7 @@ def comprar_produto(empresa):
     except Exception:
         raise ValueError('Código inválido e/ou produto não encontrado.')
     
-    empresa.registrar_venda(valor_total, venda)
+    empresa.registrar_venda(valor_total, valor_pago, produto, quantidade_produto_comprar, venda)
     vendedor.calcular_comissao(produto, quantidade_produto_comprar)
     gerar_comprovante_compra(produto, quantidade_produto_comprar, valor_total, venda.data_hora, vendedor)
     

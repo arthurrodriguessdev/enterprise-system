@@ -1,4 +1,4 @@
-from funcionario import Funcionario
+from core.funcionario import Funcionario
 
 
 class Vendedor(Funcionario):

@@ -2,7 +2,7 @@ from datetime import datetime
 from pathlib import Path
 
 # Criando caminho para armazenamento dos arquivos
-BASE_DIR = Path(__file__).resolve().parent
+BASE_DIR = Path(__file__).resolve().parent.parent
 ARQUIVOS_DIR = BASE_DIR / 'arquivos'
 ARQUIVOS_DIR.mkdir(exist_ok=True)
 

@@ -1,4 +1,4 @@
-from sistema_empresarial.utils.sequencias import gerar_sequencia
+from utils.sequencias import gerar_sequencia
 
 
 class Produto:
