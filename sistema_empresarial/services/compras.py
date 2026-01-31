@@ -1,9 +1,8 @@
 import random
-from produto import Produto
-from vendas import Venda
-from vendedor import Vendedor
-from empresa import Empresa
-from gerar_arquivos import gerar_comprovante_compra, gerar_relatorio
+from core.produto import Produto
+from core.vendas import Venda
+from core.vendedor import Vendedor
+from sistema_empresarial.utils.gerar_arquivos import gerar_comprovante_compra
 
 
 PRODUTOS = (
@@ -66,5 +65,5 @@ def comprar_produto(empresa):
     vendedor.calcular_comissao(produto, quantidade_produto_comprar)
     gerar_comprovante_compra(produto, quantidade_produto_comprar, valor_total, venda.data_hora, vendedor)
     
-    print('\nCompra realizada com sucesso. Já geramos o seu comprovante!')
+    print('\nCompra realizada com sucesso. Já geramos o seu comprovante, acesse no diretório de arquivos!')
     return True

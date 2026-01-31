@@ -1,9 +1,6 @@
-from vendas import Venda
-from produto import Produto
-from empresa import Empresa
-from gerente import Gerente
-from services import comprar_produto
-from gerar_arquivos import gerar_relatorio
+from core.empresa import Empresa
+from sistema_empresarial.services.compras import comprar_produto
+from utils.gerar_arquivos import gerar_relatorio
 
 EMPRESA = Empresa()
 

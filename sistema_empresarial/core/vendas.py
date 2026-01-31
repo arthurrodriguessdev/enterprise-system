@@ -1,5 +1,5 @@
 from datetime import datetime
-from produto import Produto
+
 
 class Venda:
     def __init__(self, Produto, Vendedor, quantidade_produto, valor_pago, valor_total):
