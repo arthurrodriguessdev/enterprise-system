@@ -37,7 +37,7 @@ class Produto:
     
     def verificar_estoque(self, quantidade_solicitada):
         if self._quantidade < quantidade_solicitada:
-            raise ValueError(f'Infelizmente nosso estoque de {self.nome} não tenha a quantidade solicitada')
+            raise ValueError(f'Infelizmente nosso estoque de {self.nome} não tem a quantidade solicitada')
     
     def descontar_estoque(self, quantidade_descontar):
         if self._quantidade < quantidade_descontar:

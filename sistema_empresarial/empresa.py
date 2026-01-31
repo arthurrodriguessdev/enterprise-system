@@ -4,7 +4,8 @@ class Empresa:
         self.total_valor = 0
         self.nome = 'Tecnologias Python'
     
-    def registrar_venda(self, valor_venda):
+    def registrar_venda(self, valor_venda, venda):
+        venda.verificar_venda()
         self.total_vendas += 1
         self.total_valor += valor_venda
     

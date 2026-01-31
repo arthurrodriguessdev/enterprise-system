@@ -62,7 +62,8 @@ def comprar_produto(empresa):
     except Exception:
         raise ValueError('Código inválido e/ou produto não encontrado.')
     
-    empresa.registrar_venda(valor_total)
+    empresa.registrar_venda(valor_total, venda)
+    vendedor.calcular_comissao(produto, quantidade_produto_comprar)
     gerar_comprovante_compra(produto, quantidade_produto_comprar, valor_total, venda.data_hora, vendedor)
     
     print('\nCompra realizada com sucesso. Já geramos o seu comprovante!')
