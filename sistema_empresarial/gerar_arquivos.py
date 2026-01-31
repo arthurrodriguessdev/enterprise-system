@@ -2,9 +2,9 @@ from datetime import datetime
 from pathlib import Path
 
 # Criando caminho para armazenamento dos arquivos
-# BASE_DIR = Path(__file__).resolve().parent
-# ARQUIVOS_DIR = BASE_DIR / 'arquivos'
-# ARQUIVOS_DIR.mkdir(exist_ok=True)
+BASE_DIR = Path(__file__).resolve().parent
+ARQUIVOS_DIR = BASE_DIR / 'arquivos'
+ARQUIVOS_DIR.mkdir(exist_ok=True)
 
 DECORADOR_ARQUIVOS = '--------------------------------------------------------\n'
 
@@ -24,14 +24,17 @@ def gerar_comprovante_compra(produto, quantidade, valor_total_compra, data_hora_
             DECORADOR_ARQUIVOS,
             'Agradecemos pela preferência!'
         ]
-    
-        with open('comprovante.txt', 'w', encoding='utf-8') as arquivo_comprovante:
-            arquivo_comprovante.writelines(conteudo)
+        
+        caminho_arquivo = ARQUIVOS_DIR / 'comprovante_compra.txt'
+        montar_txt(conteudo, caminho_arquivo)
 
     except Exception as error:
-        raise SystemError('Erro ao gerar comprovante: {}', format(error))
+        raise SystemError(f'Erro ao gerar comprovante: {error}')
 
 def gerar_relatorio(empresa):
+    if empresa.total_vendas == 0:
+        raise SystemError('Nenhuma venda foi realizada até o momento.')
+    
     try:
         # Montando arquivo de relatório da empresa
         conteudo = [
@@ -45,10 +48,18 @@ def gerar_relatorio(empresa):
             DECORADOR_ARQUIVOS
         ]
 
-        with open('relatorio_vendas.txt', 'w', encoding='utf-8') as arquivo_comprovante:
-            arquivo_comprovante.writelines(conteudo)
+        caminho_arquivo = ARQUIVOS_DIR / 'relatorio_vendas.txt'
+        montar_txt(conteudo, caminho_arquivo)
 
     except Exception as error:
         raise SystemError(f'Erro ao gerar relatório: {error}')
     
     print('Relatório gerado com sucesso.')
+
+def montar_txt(conteudo, caminho):
+    try:
+        with open(caminho, 'w', encoding='utf-8') as arquivo:
+            arquivo.writelines(conteudo)
+
+    except Exception as error:
+        raise SystemError(f'Erro ao gerar arquivo:{error}')
