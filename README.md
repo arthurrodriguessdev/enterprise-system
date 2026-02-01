@@ -43,7 +43,7 @@
 ```bash
 https://github.com/arthurrodriguessdev/enterprise-system.git
 
-2. Acesse o diretório do projeto::
+2. Acesse o diretório do projeto:
 cd enterprise-system
 
 3. Execute o sistema:
@@ -61,6 +61,7 @@ python3 -m unittest discover
 O sistema gera automaticamente os seguintes arquivos:
 - **comprovante_compra.txt**: comprovante da compra realizada
 - **relatorio_vendas.txt**: relatório de todas as vendas realizadas
+
 Os arquivos são salvos localmente no diretório "arquivos" dentro do projeto.
 
 ## Licença
