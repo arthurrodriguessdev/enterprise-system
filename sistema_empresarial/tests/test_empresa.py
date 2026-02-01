@@ -16,7 +16,8 @@ class TestEmpresa(unittest.TestCase):
         self.empresa.registrar_venda(7500.0, 9000.0, self.produto, 3, self.venda)
     
     def test_registrar_venda(self):
-        self.assertEqual(self.empresa.total_valor, 12500.0) and self.assertEqual(self.empresa.total_vendas, 5)
+        self.assertEqual(self.empresa.total_valor, 12500.0)
+        self.assertEqual(self.empresa.total_vendas, 2)
     
     def test_valor_media_vendas(self):
         valor_media = self.empresa.valor_media_vendas
